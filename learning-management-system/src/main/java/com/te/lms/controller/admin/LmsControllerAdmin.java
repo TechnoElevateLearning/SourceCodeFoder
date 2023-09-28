@@ -25,6 +25,7 @@ public class LmsControllerAdmin {
 	private LmsServiceAdmin lmsServiceAdmin;
 
 	// admin
+	// controller
 	@DeleteMapping("/deleteEmployee/{employeeId}")
 	public String deleteEmployee(@PathVariable("employeeId") Integer employeeId) {
 		lmsServiceEmployee.deleteEmployee(employeeId);
