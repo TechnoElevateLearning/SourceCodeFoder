@@ -19,27 +19,25 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 @RequestMapping("/lms/admin")
 public class LmsControllerAdmin {
 
-
 	@Autowired
-	private LmsServiceEmployee  lmsServiceEmployee;
+	private LmsServiceEmployee lmsServiceEmployee;
 	@Autowired
 	private LmsServiceAdmin lmsServiceAdmin;
-	
-	
-	
+
+	// admin
 	@DeleteMapping("/deleteEmployee/{employeeId}")
-	public String deleteEmployee(@PathVariable ("employeeId") Integer employeeId) {
+	public String deleteEmployee(@PathVariable("employeeId") Integer employeeId) {
 		lmsServiceEmployee.deleteEmployee(employeeId);
 		return "employee deleted successfully";
-		
+
 	}
-	
+
 	@PostMapping("/createAdmin")
 	public String createAdmin(@RequestBody AdminDto adminDto) {
 		Admin admin = lmsServiceAdmin.createAdmin(adminDto);
-		if(admin!=null) {
+		if (admin != null) {
 			return "Admin created";
-		}else {
+		} else {
 			return "Admin is not created";
 		}
 	}
